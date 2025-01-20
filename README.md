@@ -1,7 +1,7 @@
 # Browser Breakers Backend
 
 ## Introduction
-The Browser Breakers Backend is the server-side component of the Browser Breakers project, responsible for handling user authentication, project management, and other core functionalities. It provides a set of APIs for seamless interaction with the frontend, ensuring secure and efficient data handling and storage using Node.js, Express.js, and MongoDB.
+The Browser Breakers Backend is the server-side component of the Browser Breakers project and is responsible for handling user authentication, project management, and other core functionalities. It provides a set of APIs for seamless interaction with the frontend, ensuring secure and efficient data handling and storage using Node.js, Express.js, and MongoDB.
 
 ## Project Type
 Backend 
@@ -29,10 +29,10 @@ package.json
 
 
 ## Video Walkthrough of the project
-Attach a very short video walkthough of all of the features [ 1 - 3 minutes ]
+Attach a very short video walkthrough of all of the features [ 1 - 3 minutes ]
 
 ## Video Walkthrough of the codebase
-Attach a very short video walkthough of codebase [ 1 - 5 minutes ]
+Attach a very short video walkthrough of codebase [ 1 - 5 minutes ]
 
 ## Features
 - User Authentication: Sign up, log in, and log out functionality with JWT-based authentication.

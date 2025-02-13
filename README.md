@@ -14,6 +14,7 @@ Database: https://deployed-site.whatever
 ## Directory Structure
 - backend
 
+```
 src/
 ├─ controllers/
 ├─ middleware/
@@ -26,6 +27,7 @@ src/
 app.js
 package-lock.json
 package.json
+```
 
 
 ## Video Walkthrough of the project

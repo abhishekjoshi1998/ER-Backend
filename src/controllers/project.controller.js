@@ -63,7 +63,7 @@ export const updateProject = async (req, res) => {
         res.status(500).json({ message: "Failed to update project", error });
     }
 };
-
+//delete--->
 export const deleteProject = async (req, res) => {
     try {
         const project = await Project.findByIdAndDelete(req.params.projectId);

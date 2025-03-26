@@ -22,6 +22,7 @@ app.use(express.json());
 app.use("/api/users", userRoute);
 app.use("/api/project", projectRoute)
 
+
 app.listen(PORT, () => {
     console.log(`Server started on port http://localhost:${PORT}`);
 });

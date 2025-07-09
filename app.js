@@ -12,10 +12,10 @@ const PORT = process.env.PORT || 8080;
 
 connectDB();
 console.log(process.env.CLIENT_URL);
-// cors({
-//   origin: "https://entity-craft.vercel.app",
-//   credentials: true,
-// });
+cors({
+  origin: "https://entity-craft.vercel.app",
+  credentials: true,
+});
 
 app.use(express.json());
 app.use("/api/users", userRoute);

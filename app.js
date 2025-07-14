@@ -9,37 +9,37 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+// Force custom CORS headers manually
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", process.env.CLIENT_URL || "https://entity-craft.vercel.app");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  next();
+});
+
+// Optional CORS middleware for added reliability
+app.use(cors({
+  origin: process.env.CLIENT_URL || "https://entity-craft.vercel.app",
+  credentials: true,
+}));
+
+// Handle preflight (OPTIONS) requests
+app.options("*", cors({
+  origin: process.env.CLIENT_URL || "https://entity-craft.vercel.app",
+  credentials: true,
+}));
+
 // Connect to DB
 connectDB();
-console.log(process.env.CLIENT_URL);
 
-// CORS Configuration
-const allowedOrigins = [process.env.CLIENT_URL || "https://entity-craft.vercel.app"];
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-}));
-
-// Handle preflight (OPTIONS) requests globally
-app.options("*", cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));
-
-// Middleware
+// JSON middleware
 app.use(express.json());
 
 // Routes
 app.use("/api/users", userRoute);
 app.use("/api/project", projectRoute);
 
-// Start server
 app.listen(PORT, () => {
   console.log(`Server started on port http://localhost:${PORT}`);
 });
